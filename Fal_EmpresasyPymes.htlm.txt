@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAL EMPRESAS - Fondo de Ahorro Laboral</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Transiciones suaves para las pestañas y el acordeón */
+        .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen font-sans text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-blue-900 text-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-chart-line text-3xl text-blue-400"></i>
+                <h1 class="text-3xl font-bold tracking-tight">FAL EMPRESAS</h1>
+            </div>
+            <p class="text-blue-200 mt-2 md:mt-0 font-medium">Fondo de Asistencia Laboral - Ley 27.802</p>
+        </div>
+    </header>
+
+    <!-- Navegación de Pestañas -->
+    <nav class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <ul class="flex overflow-x-auto space-x-8 border-b border-slate-200" id="tabs">
+                <li>
+                    <button onclick="switchTab('que-es-fal')" class="tab-btn active border-b-2 border-blue-600 text-blue-600 py-4 px-2 font-semibold whitespace-nowrap transition-colors flex items-center gap-2" data-target="que-es-fal">
+                        <i class="fa-solid fa-circle-info"></i> ¿Qué es el FAL?
+                    </button>
+                </li>
+                <li>
+                    <button onclick="switchTab('simulador')" class="tab-btn border-b-2 border-transparent text-slate-500 hover:text-blue-600 py-4 px-2 font-semibold whitespace-nowrap transition-colors flex items-center gap-2" data-target="simulador">
+                        <i class="fa-solid fa-calculator"></i> Simulador FAL
+                    </button>
+                </li>
+                <li>
+                    <button onclick="switchTab('registro')" class="tab-btn border-b-2 border-transparent text-slate-500 hover:text-blue-600 py-4 px-2 font-semibold whitespace-nowrap transition-colors flex items-center gap-2" data-target="registro">
+                        <i class="fa-solid fa-user-tie"></i> Adhesión y Contacto
+                    </button>
+                </li>
+                <li>
+                    <button onclick="switchTab('faq')" class="tab-btn border-b-2 border-transparent text-slate-500 hover:text-blue-600 py-4 px-2 font-semibold whitespace-nowrap transition-colors flex items-center gap-2" data-target="faq">
+                        <i class="fa-solid fa-circle-question"></i> Preguntas Frecuentes
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="max-w-6xl mx-auto px-4 py-8">
+
+        <!-- PESTAÑA 0: ¿QUÉ ES EL FAL? (ACTIVA POR DEFECTO) -->
+        <section id="que-es-fal" class="tab-content active">
+            <div class="max-w-4xl mx-auto space-y-8">
+                
+                <!-- Encabezado Informativo Principal -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 text-center">
+                    <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full uppercase tracking-wider mb-3">
+                        Marco Legal y Operativo
+                    </span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mb-4">¿QUÉ ES EL FAL?</h2>
+                    <p class="text-xl font-semibold text-blue-700 mb-6">Un nuevo régimen obligatorio para todas las empresas.</p>
+                    <p class="text-slate-600 text-base leading-relaxed max-w-3xl mx-auto">
+                        La <strong class="text-slate-800">Ley 27.802</strong> obliga a constituir un Fondo de Asistencia Laboral a través de un Fondo Común de Inversión, destinado a cubrir las obligaciones derivadas de desvinculaciones laborales. El patrimonio es separado, inembargable y de afectación específica.
+                    </p>
+                </div>
+
+                <!-- 3 Bloques Informativos Clave -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Bloque 1: No es un costo adicional -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-md transition-shadow">
+                        <div>
+                            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-hand-holding-dollar"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-3">No es un costo adicional</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                El 2,5% se descuenta de las contribuciones patronales que ya pagás mensualmente a ANSES. Tu carga impositiva no cambia, solo se redirige una parte a un fondo propio de tu empresa que empieza a generar intereses para vos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Bloque 2: Es ley y es obligatorio -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-md transition-shadow">
+                        <div>
+                            <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-3">Es ley y es obligatorio</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                La Ley 27.802 establece la obligatoriedad para todos los empleadores del sector privado. La fecha de entrada en vigencia es el <strong class="text-slate-800">1° de noviembre de 2026</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Bloque 3: Trabaja para vos -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-md transition-shadow">
+                        <div>
+                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-3">Trabaja para vos</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Ese fondo crece mes a mes y, bien gestionado, se convierte en una herramienta financiera que potencia tu empresa. La diferencia está en quién lo gestiona y esa elección es tuya.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Botón Directo al Simulador -->
+                <div class="text-center pt-4">
+                    <button onclick="switchTab('simulador')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg hover:shadow-xl inline-flex items-center gap-3 text-lg">
+                        <i class="fa-solid fa-calculator"></i> Probar Simulador de Aportes
+                    </button>
+                </div>
+
+            </div>
+        </section>
+        
+        <!-- PESTAÑA 1: SIMULADOR -->
+        <section id="simulador" class="tab-content">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Panel de Configuración -->
+                <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h2 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">Configuración de Empresa</h2>
+                    
+                    <div class="mb-6">
+                        <label for="empleados" class="block text-sm font-medium text-slate-700 mb-2">Cantidad de Empleados</label>
+                        <input type="number" id="empleados" min="1" max="5000" value="5" 
+                            class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-lg font-semibold"
+                            oninput="calcularFAL()">
+                        <p class="text-xs text-slate-500 mt-1">Ingrese un valor entre 1 y 5000</p>
+                    </div>
+
+                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                        <h3 class="text-sm font-bold text-blue-900 mb-3 uppercase tracking-wider">Clasificación Actual</h3>
+                        
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-slate-600 text-sm">Categoría:</span>
+                            <span id="categoria-badge" class="px-2 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">MICRO</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-slate-600 text-sm">Sueldo Promedio:</span>
+                            <span id="sueldo-txt" class="font-semibold text-slate-800">$ 1.000.000</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-600 text-sm">Aporte Mensual FAL:</span>
+                            <span id="porcentaje-txt" class="font-bold text-blue-700">2.5%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel de Resultados (Las 4 sub-pestañas / tarjetas) -->
+                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    
+                    <!-- Tarjeta 1: Masa Salarial Mensual -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-center relative overflow-hidden group hover:border-blue-300 transition-colors">
+                        <div class="absolute -right-4 -top-4 w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+                            <i class="fa-solid fa-users text-slate-300 group-hover:text-blue-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-1">Masa Salarial Mensual</h3>
+                        <p id="res-masa" class="text-3xl font-bold text-slate-800">$ 5.000.000</p>
+                    </div>
+
+                    <!-- Tarjeta 2: Aporte FAL Mensual -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-center relative overflow-hidden group hover:border-blue-400 transition-colors">
+                        <div class="absolute -right-4 -top-4 w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                            <i class="fa-solid fa-money-bill-transfer text-blue-300 group-hover:text-blue-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-1">Aporte FAL Mensual</h3>
+                        <p id="res-aporte" class="text-3xl font-bold text-blue-700">$ 125.000</p>
+                        <p class="text-xs text-slate-400 mt-2">Calculado al <span id="res-porcentaje">2.5%</span></p>
+                    </div>
+
+                    <!-- Tarjeta 3: Capital 1 Año -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-center relative overflow-hidden group hover:border-emerald-300 transition-colors">
+                        <div class="absolute -right-4 -top-4 w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center group-hover:bg-emerald-100 transition-colors">
+                            <i class="fa-solid fa-calendar-check text-emerald-200 group-hover:text-emerald-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-1">Capital Acumulado (1 Año)</h3>
+                        <p id="res-anio1" class="text-3xl font-bold text-emerald-600">$ 1.500.000</p>
+                        <p class="text-xs text-slate-400 mt-2">12 meses de aportes (sin rendimientos)</p>
+                    </div>
+
+                    <!-- Tarjeta 4: Capital 3 Años -->
+                    <div class="bg-gradient-to-br from-slate-800 to-blue-900 p-6 rounded-xl shadow-md border border-slate-700 flex flex-col justify-center relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-piggy-bank text-white/30 text-xl"></i>
+                        </div>
+                        <h3 class="text-sm font-semibold text-blue-200 uppercase tracking-wider mb-1">Capital Acumulado (3 Años)</h3>
+                        <p id="res-anio3" class="text-3xl font-bold text-white">$ 4.500.000</p>
+                        <p class="text-xs text-slate-400 mt-2">36 meses de aportes (sin rendimientos)</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PESTAÑA 2: REGISTRO DE USUARIO -->
+        <section id="registro" class="tab-content">
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-slate-800">Adhesión al Sistema FAL</h2>
+                    <p class="text-slate-500 mt-2">Complete el formulario para que un asesor especializado se contacte con su empresa.</p>
+                </div>
+                
+                <form onsubmit="event.preventDefault(); alert('¡Gracias! Sus datos han sido enviados. Un asesor se comunicará pronto.');" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Nombre y Apellido del Contacto</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-regular fa-user text-slate-400"></i>
+                            </div>
+                            <input type="text" required class="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Ej. Juan Pérez">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Nombre de la Empresa</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-regular fa-building text-slate-400"></i>
+                            </div>
+                            <input type="text" required class="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Ej. Tech Solutions S.A.">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Correo Electrónico (Email)</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-regular fa-envelope text-slate-400"></i>
+                            </div>
+                            <input type="email" required class="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="contacto@empresa.com">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Número de WhatsApp</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-brands fa-whatsapp text-slate-400"></i>
+                            </div>
+                            <input type="tel" required class="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="+54 9 11 1234-5678">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors shadow-md mt-6">
+                        Solicitar Adhesión
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- PESTAÑA 3: PREGUNTAS FRECUENTES -->
+        <section id="faq" class="tab-content">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 text-center">Preguntas Frecuentes sobre el FAL</h2>
+                
+                <div class="space-y-4">
+                    <!-- Pregunta 1 -->
+                    <details class="group bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden" open>
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-slate-800 hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-lg">¿Qué es exactamente el FAL?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fa-solid fa-chevron-down text-blue-600"></i>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 p-5 pt-0 border-t border-slate-100 mt-2 bg-white leading-relaxed">
+                            El Fondo de Cese Laboral (FAL) es un sistema alternativo que sustituye la indemnización tradicional por despido. Consiste en aportes mensuales que realiza el empleador a un fondo de capitalización. Este fondo sirve para cubrir al trabajador ante cualquier tipo de cese de la relación laboral (despido, renuncia, mutuo acuerdo), brindando previsibilidad al empleador y seguridad al empleado.
+                        </div>
+                    </details>
+
+                    <!-- Pregunta 2 -->
+                    <details class="group bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-slate-800 hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-lg">¿El FAL tiene beneficios fiscales?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fa-solid fa-chevron-down text-blue-600"></i>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 p-5 pt-0 border-t border-slate-100 mt-2 bg-white leading-relaxed">
+                            Sí. Los aportes realizados por la empresa al Fondo de Ahorro Laboral son considerados un gasto deducible en la liquidación del Impuesto a las Ganancias. Esto genera un escudo fiscal importante, reduciendo la carga impositiva de la compañía al mismo tiempo que se provisiona el pasivo laboral.
+                        </div>
+                    </details>
+
+                    <!-- Pregunta 3 -->
+                    <details class="group bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-slate-800 hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-lg">¿Qué pasa si no me adhiero antes del 1° de noviembre?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fa-solid fa-chevron-down text-blue-600"></i>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 p-5 pt-0 border-t border-slate-100 mt-2 bg-white leading-relaxed">
+                            Las empresas que decidan no adherirse o no lleguen a la fecha límite establecida continuarán operando bajo el régimen tradicional de indemnizaciones de la Ley de Contrato de Trabajo (LCT). Sin embargo, perderán la oportunidad de licuar su pasivo laboral progresivamente y no gozarán de las tasas reducidas de adhesión temprana.
+                        </div>
+                    </details>
+
+                    <!-- Pregunta 4 -->
+                    <details class="group bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-slate-800 hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-lg">¿Puedo elegir quién administra el fondo?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fa-solid fa-chevron-down text-blue-600"></i>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 p-5 pt-0 border-t border-slate-100 mt-2 bg-white leading-relaxed">
+                            Sí. El sistema permite que, a través del convenio colectivo o por acuerdo de partes, se seleccione a Entidades Financieras, Sociedades Gerentes de Fondos Comunes de Inversión (como IEB), o Fideicomisos autorizados por la CNV para administrar y hacer rendir los aportes depositados.
+                        </div>
+                    </details>
+
+                    <!-- Pregunta 5 -->
+                    <details class="group bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-slate-800 hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-lg">¿Qué hace IEB con el dinero del fondo?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fa-solid fa-chevron-down text-blue-600"></i>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 p-5 pt-0 border-t border-slate-100 mt-2 bg-white leading-relaxed">
+                            Invertir en Bolsa (IEB) y otros administradores invierten el capital en un menú de instrumentos financieros regulados y conservadores (como bonos corporativos de alta calidad, letras del tesoro, instrumentos atados a la inflación). El objetivo principal es preservar el poder adquisitivo del dinero depositado frente a la inflación y generar rendimientos positivos reales.
+                        </div>
+                    </details>
+
+                    <!-- Pregunta 6 -->
+                    <details class="group bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-slate-800 hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-lg">¿Puedo recuperar el dinero si cierro la empresa?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fa-solid fa-chevron-down text-blue-600"></i>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 p-5 pt-0 border-t border-slate-100 mt-2 bg-white leading-relaxed">
+                            No. Los aportes realizados al FAL pasan a formar parte de una cuenta individual a nombre del trabajador. En caso de cierre de la empresa (o cualquier causal de cese), esos fondos son la garantía de cobro del empleado y se le liquidan directamente a él. La ventaja para el empleador es que al depositar mensualmente, el pasivo laboral ya está cancelado.
+                        </div>
+                    </details>
+
+                    <!-- Pregunta 7 -->
+                    <details class="group bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-slate-800 hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-lg">¿El FAL sirve para cualquier tamaño de empresa?</span>
+                            <span class="transition group-open:rotate-180">
+                                <i class="fa-solid fa-chevron-down text-blue-600"></i>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 p-5 pt-0 border-t border-slate-100 mt-2 bg-white leading-relaxed">
+                            Totalmente. Como se demuestra en nuestro simulador, el sistema está escalado para adaptarse a la realidad de cada organización. Desde <strong>Microempresas</strong> (1 a 10 empleados) y <strong>Pymes</strong> (11 a 1000 empleados) hasta <strong>Grandes empresas</strong> (más de 1000 empleados), ajustando los sueldos promedios y los porcentajes de aporte según la reglamentación.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 py-6 text-center mt-12">
+        <div class="max-w-6xl mx-auto px-4 text-sm">
+            <p>&copy; 2026 FAL Empresas. Sistema de simulación y cálculo de Fondo de Ahorro Laboral.</p>
+        </div>
+    </footer>
+
+    <!-- Lógica de la Aplicación -->
+    <script>
+        // Formateador de moneda (Pesos Argentinos)
+        const formatMoney = (amount) => {
+            return new Intl.NumberFormat('es-AR', {
+                style: 'currency',
+                currency: 'ARS',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(amount);
+        };
+
+        // Lógica de cálculo principal
+        function calcularFAL() {
+            let inputEmpleados = document.getElementById('empleados').value;
+            let numEmpleados = parseInt(inputEmpleados);
+
+            // Validaciones básicas
+            if (isNaN(numEmpleados) || numEmpleados < 1) {
+                numEmpleados = 1;
+            } else if (numEmpleados > 5000) {
+                numEmpleados = 5000;
+                document.getElementById('empleados').value = 5000;
+            }
+
+            // Variables según categoría
+            let categoria = '';
+            let sueldoBase = 0;
+            let porcentajeAporte = 0;
+            let claseBadge = '';
+
+            // Lógica de agrupamiento solicitada
+            if (numEmpleados >= 1 && numEmpleados <= 10) {
+                categoria = 'MICRO';
+                sueldoBase = 1000000; // 1 Millón
+                porcentajeAporte = 0.025; // 2.5%
+                claseBadge = 'bg-emerald-500';
+            } else if (numEmpleados >= 11 && numEmpleados <= 1000) {
+                categoria = 'PYME';
+                sueldoBase = 1400000; // 1.4 Millones
+                porcentajeAporte = 0.025; // 2.5%
+                claseBadge = 'bg-blue-500';
+            } else if (numEmpleados >= 1001 && numEmpleados <= 5000) {
+                categoria = 'GRANDE';
+                sueldoBase = 2400000; // 2.4 Millones
+                porcentajeAporte = 0.01; // 1%
+                claseBadge = 'bg-indigo-600';
+            }
+
+            // Actualizar UI del panel de configuración
+            const badge = document.getElementById('categoria-badge');
+            badge.innerText = categoria;
+            badge.className = `px-2 py-1 text-white text-xs font-bold rounded-full ${claseBadge}`;
+            
+            document.getElementById('sueldo-txt').innerText = formatMoney(sueldoBase);
+            document.getElementById('porcentaje-txt').innerText = (porcentajeAporte * 100).toString().replace('.', ',') + '%';
+            document.getElementById('res-porcentaje').innerText = (porcentajeAporte * 100).toString().replace('.', ',') + '%';
+
+            // Cálculos matemáticos
+            const masaSalarialMensual = numEmpleados * sueldoBase;
+            const aporteFALMensual = masaSalarialMensual * porcentajeAporte;
+            const capital1Anio = aporteFALMensual * 12;
+            const capital3Anios = aporteFALMensual * 36;
+
+            // Actualizar tarjetas de resultados
+            document.getElementById('res-masa').innerText = formatMoney(masaSalarialMensual);
+            document.getElementById('res-aporte').innerText = formatMoney(aporteFALMensual);
+            document.getElementById('res-anio1').innerText = formatMoney(capital1Anio);
+            document.getElementById('res-anio3').innerText = formatMoney(capital3Anios);
+        }
+
+        // Lógica para cambiar de pestañas
+        function switchTab(tabId) {
+            // Ocultar todos los contenidos
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Mostrar el contenido seleccionado
+            document.getElementById(tabId).classList.add('active');
+
+            // Resetear estilos de todos los botones
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('border-blue-600', 'text-blue-600');
+                btn.classList.add('border-transparent', 'text-slate-500');
+            });
+
+            // Activar estilo en el botón seleccionado
+            const activeBtn = document.querySelector(`.tab-btn[data-target="${tabId}"]`);
+            activeBtn.classList.remove('border-transparent', 'text-slate-500');
+            activeBtn.classList.add('border-blue-600', 'text-blue-600');
+        }
+
+        // Inicializar el cálculo al cargar la página
+        window.onload = calcularFAL;
+    </script>
+</body>
+</html>
